@@ -9,15 +9,55 @@ Este repositório reúne todos os diagramas, modelos e artefatos utilizados para
 
 ---
 
-# 📂 Estrutura do Repositório
-Os arquivos seguem exatamente a mesma ordem apresentada no documento oficial em PDF, organizados em:
+# 📂 Estrutura de Diretórios
 
-- **Atores**
-- **Casos de Uso**
-- **Diagrama de Sequência do Sistema**
-- **Modelos de Projeto (Arquitetura, Componentes, Classes, Sequência, Comunicação, Estados)**
-- **Modelo de Dados**
-
+**Estrutura do projeto:**
+``` 
+Documentação-LitNet/
+├── Casos de Uso/
+│   ├── Código PLANT UML/
+│   └── Imagens/
+│       ├── UC-01 - Gerenciar Usuários.png
+│       ├── UC-02 - Avaliar Livros.png
+│       ├── UC-03 - Gerenciar Fórum de Discussão.png
+│       ├── UC-04 - Gerenciar Livros.png
+│       ├── UC-05 - Comprar e Vender Livros.png
+│       └── UC-06 - Fluxo Geral do sistema.png
+├── Diagrama de Sequência do Sistema/
+│   ├── Código PLANT UML/
+│   └── Imagens/
+│       └── DS-01 - Diagrama de Sequência do Sistema.png
+├── Modelo de Dados/
+│   ├── Código PLANT UML/
+│   └── Imagens/
+│       └── Modelo de Dados.png
+├── Modelos de Projeto/
+│   ├── Arquitetura/
+│   │   ├── Código PLANT UML/
+│   │   └── Imagens/
+│   │       └── Arquitetura do Sistema.png
+│   ├── Diagrama de Classes/
+│   │   ├── Código PLANT UML/
+│   │   └── Imagens/
+│   │       └── Diagrama de Classes.png
+│   ├── Diagrama de Componentes/
+│   │   ├── Código PLANT UML/
+│   │   └── Imagens/
+│   │       └── Diagrama de Componentes.png
+│   ├── Diagrama de Comunicação/
+│   │   ├── Código PLANT UML/
+│   │   └── Imagens/
+│   │       ├── DiagramaUC01.png
+│   │       ├── DiagramaUC02.png
+│   │       ├── DiagramaUC03.png
+│   │       ├── DiagramaUC04.png
+│   │       └── DiagramaUC05.png
+│   └── Diagrama de Estados/
+│       ├── Código PLANT UML/
+│       └── Imagens/
+│           └── Diagrama de Estados.png
+└── README.md
+```
 Todas as imagens estão organizadas nas respectivas pastas.
 
 ---
@@ -92,38 +132,38 @@ Usuário que cria anúncios para venda de livros. Pode registrar novos itens, re
 
 ## 3.4 Diagramas de Sequência (por Caso de Uso)
 
-### UC-01
+### Diagrama de Sequência UC-01
 ![Seq UC01](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC01.png)
 
-### UC-02
+### Diagrama de Sequência UC-02
 ![Seq UC02](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC02.png)
 
-### UC-03
+### Diagrama de Sequência UC-03
 ![Seq UC03](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC03.png)
 
-### UC-04
+### Diagrama de Sequência UC-04
 ![Seq UC04](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC04.png)
 
-### UC-05
+### Diagrama de Sequência UC-05
 ![Seq UC05](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC05.png)
 
 ---
 
 ## 3.5 Diagramas de Comunicação
 
-### UC-01
+### Diagrama de Comunicação UC-01
 ![UC01](Modelos%20de%20Projeto/Diagrama%20de%20Comunicação/Imagens/DiagramaUC01.png)
 
-### UC-02
+### Diagrama de Comunicação UC-02
 ![UC02](Modelos%20de%20Projeto/Diagrama%20de%20Comunicação/Imagens/DiagramaUC02.png)
 
-### UC-03
+### Diagrama de Comunicação UC-03
 ![UC03](Modelos%20de%20Projeto/Diagrama%20de%20Comunicação/Imagens/DiagramaUC03.png)
 
-### UC-04
+### Diagrama de Comunicação UC-04
 ![UC04](Modelos%20de%20Projeto/Diagrama%20de%20Comunicação/Imagens/DiagramaUC04.png)
 
-### UC-05
+### Diagrama de Comunicação UC-05
 ![UC05](Modelos%20de%20Projeto/Diagrama%20de%20Comunicação/Imagens/DiagramaUC05.png)
 
 ---
