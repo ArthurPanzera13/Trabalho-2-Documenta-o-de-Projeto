@@ -3,7 +3,7 @@
 📄 **Documentação Oficial em PDF**  
 A versão completa e final da documentação pode ser acessada no link abaixo:
 
-➡️ [**Trabalho 2 - Documentação de Projeto (PDF)**](Trabalho%202%20-%20Documenta%C3%A7%C3%A3o%20de%20Projeto.pdf)
+➡️ [**Trabalho 2 - Documentação de Projeto (PDF)**](Trabalho%202%20-%20%20Documentação%20de%20Projeto.pdf)
 
 Este repositório reúne todos os diagramas, modelos e artefatos utilizados para documentar o sistema **LitNet**, uma plataforma social para leitores que integra biblioteca pessoal, fórum de discussão, avaliações e marketplace.
 
