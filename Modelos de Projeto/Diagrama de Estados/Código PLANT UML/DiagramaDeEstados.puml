@@ -1,0 +1,131 @@
+skinparam state {
+  BackgroundColor<<interno>> #F8F8F8
+  BackgroundColor #EFEFEF
+  BorderColor #555
+  FontSize 14
+}
+
+[*] --> Inicio : Inicialização do Sistema
+
+state Inicio {
+}
+
+Inicio --> TelaLogin : Acessar sistema
+
+state TelaLogin {
+  state "TelaLogin" as TL
+  TL : entry / Exibir campos de login
+  TL : exit / Validar credenciais
+}
+
+TelaLogin --> PainelPrincipal : Login bem-sucedido
+TelaLogin --> Sair : Login inválido
+
+state PainelPrincipal {
+  PP : entry / Exibir menu principal
+}
+
+PainelPrincipal --> Biblioteca : Gerenciar Biblioteca
+PainelPrincipal --> Forum : Acessar Fórum
+PainelPrincipal --> Marketplace : Acessar Marketplace
+PainelPrincipal --> Avaliacoes : Avaliar Livro
+PainelPrincipal --> Sair : Logout
+
+state Biblioteca {
+  [*] --> BuscarLivro
+  
+  state BuscarLivro {
+    BL : entry / Inserir termo de busca
+  }
+  
+  BuscarLivro --> ExibirLivro : Livro encontrado
+  
+  state ExibirLivro {
+    EV : entry / Exibir detalhes do livro
+  }
+  
+  ExibirLivro --> AdicionarEstante : Adicionar à estante
+  ExibirLivro --> BuscarLivro : Nova busca
+  
+  state AdicionarEstante {
+    AE : entry / Salvar item na estante
+  }
+  
+  AdicionarEstante --> [*]
+}
+
+state Forum {
+  [*] --> ListarTopicos
+  
+  state ListarTopicos {
+    LT : entry / Exibir tópicos
+  }
+
+  ListarTopicos --> ExibirTopico : Selecionar tópico
+
+  state ExibirTopico {
+    ET : entry / Carregar conteúdo do tópico
+  }
+
+  ExibirTopico --> Comentar : Enviar comentário
+  ExibirTopico --> ListarTopicos : Voltar
+
+  state Comentar {
+    C : entry / Publicar comentário
+  }
+
+  Comentar --> [*]
+}
+
+state Marketplace {
+  [*] --> ListarAnuncios
+  
+  state ListarAnuncios {
+    LA : entry / Buscar anúncios
+  }
+  
+  ListarAnuncios --> ExibirAnuncio : Selecionar anúncio
+  ListarAnuncios --> CriarAnuncio : Criar novo anúncio
+
+  state ExibirAnuncio {
+    EA : entry / Mostrar detalhes
+  }
+
+  ExibirAnuncio --> ProporCompra : Enviar proposta
+  ExibirAnuncio --> ListarAnuncios : Voltar
+
+  state CriarAnuncio {
+    CA : entry / Preencher dados do anúncio
+  }
+
+  CriarAnuncio --> [*]
+
+  state ProporCompra {
+    PC : entry / Registrar proposta
+  }
+
+  ProporCompra --> [*]
+}
+
+state Avaliacoes {
+  [*] --> CriarReview
+
+  state CriarReview {
+    CR : entry / Preencher avaliação
+  }
+
+  CriarReview --> SalvarReview : Salvar
+
+  state SalvarReview {
+    SR : entry / Persistir no banco
+  }
+
+  SalvarReview --> [*]
+}
+
+state Sair {
+  S : entry / Finalizar sessão
+}
+
+Sair --> [*] : Encerrar sistema
+@enduml

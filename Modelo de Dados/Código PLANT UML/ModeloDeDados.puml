@@ -1,0 +1,132 @@
+@startuml
+skinparam roundcorner 15
+skinparam shadowing false
+skinparam linetype ortho
+
+entity "User" as user {
+  *id : BIGINT <<PK>>
+  --
+  nome : VARCHAR(100)
+  email : VARCHAR(120)
+  senhaHash : VARCHAR(255)
+  fotoPerfil : VARCHAR(255)
+  dataCriacao : DATE
+  status : VARCHAR(20)
+}
+
+entity "PerfilLeitor" as perfil {
+  *user_id : BIGINT <<PK, FK>>
+  biografia : TEXT
+  preferenciasGenero : TEXT
+}
+
+entity "Book" as book {
+  *id : BIGINT <<PK>>
+  titulo : VARCHAR(255)
+  autor : VARCHAR(255)
+  editora : VARCHAR(255)
+  isbn : VARCHAR(30)
+  sinopse : TEXT
+  capaURL : VARCHAR(255)
+  googleBooksId : VARCHAR(50)
+}
+
+entity "ShelfItem" as shelf {
+  *id : BIGINT <<PK>>
+  user_id : BIGINT <<FK>>
+  book_id : BIGINT <<FK>>
+  statusLeitura : VARCHAR(20)
+  dataInicio : DATE
+  dataFim : DATE
+}
+
+entity "Review" as review {
+  *id : BIGINT <<PK>>
+  user_id : BIGINT <<FK>>
+  book_id : BIGINT <<FK>>
+  nota : INT
+  comentario : TEXT
+  data : DATE
+}
+
+entity "ForumTopic" as topic {
+  *id : BIGINT <<PK>>
+  user_id : BIGINT <<FK>>
+  titulo : VARCHAR(255)
+  conteudo : TEXT
+  dataCriacao : DATE
+}
+
+entity "Comment" as comment {
+  *id : BIGINT <<PK>>
+  topic_id : BIGINT <<FK>>
+  user_id : BIGINT <<FK>>
+  conteudo : TEXT
+  dataCriacao : DATE
+}
+
+entity "Listing" as listing {
+  *id : BIGINT <<PK>>
+  user_id : BIGINT <<FK>>
+  preco : DOUBLE
+  estadoLivro : VARCHAR(50)
+  dataCriacao : DATE
+  ativo : BOOLEAN
+}
+
+entity "Proposal" as proposal {
+  *id : BIGINT <<PK>>
+  listing_id : BIGINT <<FK>>
+  comprador_id : BIGINT <<FK>>
+  mensagem : TEXT
+  valorProposta : DOUBLE
+  data : DATE
+}
+
+entity "Transaction" as trans {
+  *id : BIGINT <<PK>>
+  proposal_id : BIGINT <<FK>>
+  vendedor_id : BIGINT <<FK>>
+  comprador_id : BIGINT <<FK>>
+  data : DATE
+  status : VARCHAR(30)
+}
+
+entity "Notification" as notif {
+  *id : BIGINT <<PK>>
+  user_id : BIGINT <<FK>>
+  mensagem : TEXT
+  tipo : VARCHAR(30)
+  dataEnvio : DATE
+}
+
+entity "GoogleBooksAPI" as gapi {
+  +buscarLivro(isbn)
+  +buscarMetadados(idGoogle)
+}
+
+
+' ----------------------
+' RELACIONAMENTOS
+' ----------------------
+
+user ||--|| perfil : possui >
+user ||--o{ shelf : "possui itens"
+book ||--o{ shelf : "referenciado em"
+
+user ||--o{ review : escreve >
+book ||--o{ review : "avaliado em"
+
+user ||--o{ topic : cria >
+user ||--o{ comment : escreve >
+topic ||--o{ comment : possui >
+
+user ||--o{ listing : anuncia >
+listing ||--o{ proposal : recebe >
+user ||--o{ proposal : envia >
+
+proposal ||--|| trans : gera >
+user ||--o{ trans : participa >
+
+user ||--o{ notif : recebe >
+@enduml

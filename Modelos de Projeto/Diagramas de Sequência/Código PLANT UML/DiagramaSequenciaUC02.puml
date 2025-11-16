@@ -1,0 +1,22 @@
+@startuml
+actor Usuario
+participant "WebClient" as Web
+participant "LibraryController" as LC
+participant "LibraryService" as LS
+participant "BookRepository" as BR
+participant "ReviewRepository" as RR
+
+Usuario -> Web : selecionarLivro()
+Web -> LC : solicitarAvaliacao()
+LC -> LS : criarAvaliacao()
+
+LS -> BR : buscarLivro(id)
+BR --> LS : retornarLivro
+
+LS -> RR : salvarReview()
+RR --> LS : reviewCriada
+
+LS --> LC : avaliacaoRegistrada()
+LC --> Web : retornarResultado()
+Web --> Usuario : exibirConfirmacao()
+@enduml

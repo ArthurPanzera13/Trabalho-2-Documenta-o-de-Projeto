@@ -1,0 +1,33 @@
+@startuml
+actor Usuario
+participant "WebClient" as Web
+participant "MarketController" as MC
+participant "MarketService" as MS
+participant "ListingRepository" as LR
+participant "ProposalRepository" as PR
+participant "TransactionRepository" as TR
+participant "NotificationService" as NS
+
+Usuario -> Web : criarAnuncio()
+Web -> MC : solicitarCriacao()
+MC -> MS : processarAnuncio()
+
+MS -> LR : salvarAnuncio()
+LR --> MS : anuncioCriado
+
+MS --> MC : registrarProposta()
+MC --> Web : submeterProposta()
+
+Web -> MC : solicitarTransacao()
+MC -> MS : criarTransacao()
+
+MS -> TR : salvarTransacao()
+TR --> MS : transacaoCriada
+
+MS -> NS : notificarPartes()
+NS --> MS : confirmação
+
+MS --> MC : operaçãoFinalizada()
+MC --> Web : retornarResposta()
+Web --> Usuario : exibirResultado()
+@enduml

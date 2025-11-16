@@ -1,0 +1,23 @@
+@startuml
+actor Usuario
+participant "WebClient" as Web
+participant "UserController" as UC
+participant "UserService" as US
+participant "UserRepository" as UR
+participant "NotificationService" as NS
+
+Usuario -> Web : inserirCredenciais()
+Web -> UC : solicitarLogin()
+UC -> US : autenticar()
+
+US -> UR : buscarUsuario(email)
+UR --> US : retornarUsuario
+
+US -> US : validarSenha()
+US -> NS : registrarAcesso()
+NS --> US : confirmação
+
+US --> UC : respostaAutenticacao()
+UC --> Web : retornarToken()
+Web --> Usuario : exibirResultado()
+@enduml

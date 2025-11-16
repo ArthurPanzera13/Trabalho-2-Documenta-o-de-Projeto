@@ -1,0 +1,26 @@
+@startuml
+actor Usuario
+participant "WebClient" as Web
+participant "LibraryController" as LC
+participant "LibraryService" as LS
+participant "GoogleBooksAPI" as API
+participant "ShelfRepository" as SR
+participant "BookRepository" as BR
+
+Usuario -> Web : buscarLivro()
+Web -> LC : solicitarBuscaGoogle()
+LC -> API : consultarLivro(isbn)
+API --> LC : retornarMetadados()
+
+LC -> LS : registrarAção()
+
+LS -> SR : salvarItemEstante()
+SR --> LS : itemSalvo()
+
+LS -> BR : buscarLivro()
+BR --> LS : retornarLivro()
+
+LS --> LC : atualizar()
+LC --> Web : retornarResultado()
+Web --> Usuario : exibirAlterações()
+@enduml

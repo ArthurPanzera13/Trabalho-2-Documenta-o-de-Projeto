@@ -1,0 +1,26 @@
+@startuml
+actor Usuario
+participant "WebClient" as Web
+participant "ForumController" as FC
+participant "ForumService" as FS
+participant "TopicRepository" as TR
+participant "CommentRepository" as CR
+participant "NotificationService" as NS
+
+Usuario -> Web : criarTopico() / comentar()
+Web -> FC : enviarRequisicao()
+FC -> FS : processarOperacao()
+
+FS -> TR : salvarTopico()
+TR --> FS : topicoCriado
+
+FS -> CR : salvarComentario()
+CR --> FS : comentarioCriado
+
+FS -> NS : notificarParticipantes()
+NS --> FS : confirmação
+
+FS --> FC : operacaoConfirmada()
+FC --> Web : retornarResultado()
+Web --> Usuario : exibirAtualizacao()
+@enduml
