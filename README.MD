@@ -77,7 +77,7 @@ Inclui diagramas de arquitetura, classes, componentes e comunicação.
 Representação geral das camadas do sistema.
 
 ### Imagem
-- *(Inserir imagem aqui caso exista no repositório)*
+![Arquitetura](Modelos%20de%20Projeto/Arquitetura/Imagens/Arquitetura%20do%20Sistema.png)
 
 ---
 
