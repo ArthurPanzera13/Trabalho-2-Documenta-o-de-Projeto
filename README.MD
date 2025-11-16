@@ -98,7 +98,7 @@ Diagramas que mostram a troca de mensagens entre componentes.
 Diagramas completos que mostram a ordem das mensagens em cada operação do sistema.
 
 ### Imagens
-![Seq UC01](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC01.png)
+![Seq UC01](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC01.png)
 ![Seq UC02](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC02.png)
 ![Seq UC03](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC03.png)
 ![Seq UC04](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC04.png)
