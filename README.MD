@@ -1,5 +1,10 @@
 # 📘 Documentação do Sistema LitNet
 
+📄 **Documentação Oficial em PDF**  
+A versão oficial e completa da documentação do projeto está disponível no arquivo abaixo:
+
+➡️ [**Trabalho 2 - Documentação de Projeto (PDF)**](Trabalho%202%20-%20Documenta%C3%A7%C3%A3o%20de%20Projeto.pdf)
+
 Este repositório reúne toda a documentação técnica do **LitNet**, uma plataforma social para leitores que integra biblioteca pessoal, fórum de discussão, avaliações de livros e marketplace.  
 Aqui estão os modelos, diagramas e artefatos que descrevem a arquitetura, requisitos e funcionamento interno do sistema.
 
@@ -26,10 +31,20 @@ Diagramas que representam as principais funcionalidades disponibilizadas ao usu�
 
 #### UC-01
 ![UC-01 - Gerenciar Usuários](Casos%20de%20Uso/Imagens/UC-01%20-%20Gerenciar%20Usu%C3%A1rios.png)
+
+#### UC-02
 ![UC-02 - Avaliar Livros](Casos%20de%20Uso/Imagens/UC-02%20-%20Avaliar%20Livros.png)
+
+#### UC-03
 ![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20Forúm%20de%20Discussão.png)
+
+#### UC-04
 ![UC-04 - Gerenciar Livros](Casos%20de%20Uso/Imagens/UC-04%20-%20Gerenciar%20Livros.png)
+
+#### UC-05
 ![UC-05 - Comprar e Vender Livros](Casos%20de%20Uso/Imagens/UC-05%20-%20Comprar%20e%20Vender%20Livros.png)
+
+#### UC-06
 ![UC-06 - Fluxo Geral](Casos%20de%20Uso/Imagens/UC-06%20-%20Casos%20de%20Uso%20Geral%20do%20sistema.png)
 
 ---
@@ -87,10 +102,20 @@ Distribuição dos módulos do backend e integrações externas.
 Diagramas que mostram a troca de mensagens entre componentes.
 
 ### Imagens
+
+#### Diagrama de Comunicação do UC-01
 ![UC01](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC01.png)
+
+#### Diagrama de Comunicação do UC-02
 ![UC02](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC02.png)
+
+#### Diagrama de Comunicação do UC-03
 ![UC03](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC03.png)
+
+#### Diagrama de Comunicação do UC-04
 ![UC04](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC04.png)
+
+#### Diagrama de Comunicação do UC-05
 ![UC05](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC05.png)
 
 ---
@@ -100,10 +125,20 @@ Diagramas que mostram a troca de mensagens entre componentes.
 Diagramas completos que mostram a ordem das mensagens em cada operação do sistema.
 
 ### Imagens
+
+#### Diagrama de Sequência do UC-01
 ![Seq UC01](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC01.png)
+
+#### Diagrama de Sequência do UC-02
 ![Seq UC02](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC02.png)
+
+#### Diagrama de Sequência do UC-03
 ![Seq UC03](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC03.png)
+
+#### Diagrama de Sequência do UC-04
 ![Seq UC04](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC04.png)
+
+#### Diagrama de Sequência do UC-05
 ![Seq UC05](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC05.png)
 
 ---
