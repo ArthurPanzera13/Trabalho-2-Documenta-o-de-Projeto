@@ -1,3 +1,10 @@
+Esta documentação segue exatamente o template exigido pela disciplina.  
+A versão **completa, detalhada e oficial** está disponível no arquivo PDF localizado na raiz deste repositório:
+
+📄 **Trabalho 2 – Documentação de Projeto (PDF)**  
+
+O conteúdo presente neste README serve como uma **visão geral organizada**, apresentando os diagramas, atores e artefatos de forma visual, enquanto o PDF reúne toda a descrição técnica formal, requisitos completos, justificativas e explicações detalhadas.
+
 # 📘 Documentação do Sistema LitNet
 
 📄 **Documentação Oficial em PDF**  
@@ -6,7 +13,6 @@ A versão completa e final da documentação pode ser acessada no link abaixo:
 ➡️ [**Trabalho 2 - Documentação de Projeto (PDF)**](Trabalho%202%20-%20%20Documentação%20de%20Projeto.pdf)
 
 Este repositório reúne todos os diagramas, modelos e artefatos utilizados para documentar o sistema **LitNet**, uma plataforma social para leitores que integra biblioteca pessoal, fórum de discussão, avaliações e marketplace.
-
 ---
 
 # 📂 Estrutura de Diretórios
