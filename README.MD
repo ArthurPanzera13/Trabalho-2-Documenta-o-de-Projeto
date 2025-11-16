@@ -23,6 +23,8 @@ Cada pasta contém:
 Diagramas que representam as principais funcionalidades disponibilizadas ao usuário.
 
 ### Imagens
+
+#### UC-01
 ![UC-01 - Gerenciar Usuários](Casos%20de%20Uso/Imagens/UC-01%20-%20Gerenciar%20Usu%C3%A1rios.png)
 ![UC-02 - Avaliar Livros](Casos%20de%20Uso/Imagens/UC-02%20-%20Avaliar%20Livros.png)
 ![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20Forúm%20de%20Discussão.png)
@@ -110,7 +112,6 @@ Diagramas completos que mostram a ordem das mensagens em cada operação do sist
 
 Representa o fluxo geral previsto para o usuário dentro do sistema.
 
-### Imagem
 ![Diagrama de Estados](Modelos%20de%20Projeto/Diagrama%20de%20Estados/Imagens/Diagrama%20de%20Estados.png)
 
 ---
@@ -119,7 +120,6 @@ Representa o fluxo geral previsto para o usuário dentro do sistema.
 
 Representa como os módulos do sistema são distribuídos nos ambientes de execução.
 
-### Imagem
 ![Diagrama de Implantação](Modelos%20de%20Projeto/Diagrama%20de%20Implantação/Imagens/Diagrama%20De%20Implantação.png)
 
 ---
