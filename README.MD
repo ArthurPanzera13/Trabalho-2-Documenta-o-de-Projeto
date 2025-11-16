@@ -52,16 +52,13 @@ Usuário que cria anúncios para venda de livros. Pode registrar novos itens, re
 ![UC-02 - Avaliar Livros](Casos%20de%20Uso/Imagens/UC-02%20-%20Avaliar%20Livros.png)
 
 ### UC-03 – Gerenciar Fórum de Discussão
-![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20F%C3%B3rum%20de%20Discuss%C3%A3o.png)
+![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20Forúm%20de%20Discussão.png)
 
 ### UC-04 – Gerenciar Livros
 ![UC-04 - Gerenciar Livros](Casos%20de%20Uso/Imagens/UC-04%20-%20Gerenciar%20Livros.png)
 
 ### UC-05 – Comprar e Vender Livros
 ![UC-05 - Comprar e Vender Livros](Casos%20de%20Uso/Imagens/UC-05%20-%20Comprar%20e%20Vender%20Livros.png)
-
-### UC-06 – Visão Geral dos Casos de Uso
-![UC-06 - Fluxo Geral](Casos%20de%20Uso/Imagens/UC-06%20-%20Casos%20de%20Uso%20Geral%20do%20sistema.png)
 
 ---
 
