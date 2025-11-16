@@ -23,12 +23,12 @@ Cada pasta contém:
 Diagramas que representam as principais funcionalidades disponibilizadas ao usuário.
 
 ### Imagens
-- ![UC-01 - Gerenciar Usuários](Casos%20de%20Uso/Imagens/UC-01%20-%20Gerenciar%20Usu%C3%A1rios.png)
-- ![UC-02 - Avaliar Livros](Casos%20de%20Uso/Imagens/UC-02%20-%20Avaliar%20Livros.png)
-- ![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20F%C3%B3rum%20de%20Discuss%C3%B5es.png)
-- ![UC-04 - Gerenciar Livros](Casos%20de%20Uso/Imagens/UC-04%20-%20Gerenciar%20Livros.png)
-- ![UC-05 - Comprar e Vender Livros](Casos%20de%20Uso/Imagens/UC-05%20-%20Comprar%20e%20Vender%20Livros.png)
-- ![UC-06 - Fluxo Geral](Casos%20de%20Uso/Imagens/UC-06%20-%20Casos%20de%20Uso%20Geral%20do%20sistema.png)
+![UC-01 - Gerenciar Usuários](Casos%20de%20Uso/Imagens/UC-01%20-%20Gerenciar%20Usu%C3%A1rios.png)
+![UC-02 - Avaliar Livros](Casos%20de%20Uso/Imagens/UC-02%20-%20Avaliar%20Livros.png)
+![UC-03 - Gerenciar Fórum](Casos%20de%20Uso/Imagens/UC-03%20-%20Gerenciar%20F%C3%B3rum%20de%20Discuss%C3%B5es.png)
+![UC-04 - Gerenciar Livros](Casos%20de%20Uso/Imagens/UC-04%20-%20Gerenciar%20Livros.png)
+![UC-05 - Comprar e Vender Livros](Casos%20de%20Uso/Imagens/UC-05%20-%20Comprar%20e%20Vender%20Livros.png)
+![UC-06 - Fluxo Geral](Casos%20de%20Uso/Imagens/UC-06%20-%20Casos%20de%20Uso%20Geral%20do%20sistema.png)
 
 ---
 
@@ -37,7 +37,7 @@ Diagramas que representam as principais funcionalidades disponibilizadas ao usu�
 Fluxo unificado que representa a interação geral entre os módulos principais.
 
 ### Imagem
-- ![DS-01](Diagrama%20de%20Sequ%C3%AAncia%20do%20Sistema/Imagens/DS-01%20-%20Diagrama%20de%20Sequ%C3%AAncia%20do%20Sistema.png)
+![DS-01](Diagrama%20de%20Sequ%C3%AAncia%20do%20Sistema/Imagens/DS-01%20-%20Diagrama%20de%20Sequ%C3%AAncia%20do%20Sistema.png)
 
 ---
 
@@ -46,7 +46,7 @@ Fluxo unificado que representa a interação geral entre os módulos principais.
 Modelo relacional completo do banco de dados do LitNet.
 
 ### Imagem
-- ![Modelo de Dados](Modelo%20de%20Dados/Imagens/Modelo%20de%20Dados.png)
+![Modelo de Dados](Modelo%20de%20Dados/Imagens/Modelo%20de%20Dados.png)
 
 ---
 
@@ -68,7 +68,7 @@ Representação geral das camadas do sistema.
 Estrutura completa das entidades e seus relacionamentos.
 
 ### Imagem
-- ![Diagrama de Classes](Modelos%20de%20Projeto/Diagrama%20de%20Classes/Imagens/Diagrama%20de%20Classes.png)
+![Diagrama de Classes](Modelos%20de%20Projeto/Diagrama%20de%20Classes/Imagens/Diagrama%20de%20Classes.png)
 
 ---
 
@@ -76,7 +76,7 @@ Estrutura completa das entidades e seus relacionamentos.
 Distribuição dos módulos do backend e integrações externas.
 
 ### Imagem
-- ![Diagrama de Componentes](Modelos%20de%20Projeto/Diagrama%20de%20Componentes/Imagens/Diagrama%20de%20Componentes.png)
+![Diagrama de Componentes](Modelos%20de%20Projeto/Diagrama%20de%20Componentes/Imagens/Diagrama%20de%20Componentes.png)
 
 ---
 
@@ -85,11 +85,11 @@ Distribuição dos módulos do backend e integrações externas.
 Diagramas que mostram a troca de mensagens entre componentes.
 
 ### Imagens
-- ![UC01](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC01.png)
-- ![UC02](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC02.png)
-- ![UC03](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC03.png)
-- ![UC04](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC04.png)
-- ![UC05](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC05.png)
+![UC01](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC01.png)
+![UC02](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC02.png)
+![UC03](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC03.png)
+![UC04](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC04.png)
+![UC05](Modelos%20de%20Projeto/Diagrama%20de%20Comunica%C3%A7%C3%A3o/Imagens/DiagramaUC05.png)
 
 ---
 
@@ -98,11 +98,11 @@ Diagramas que mostram a troca de mensagens entre componentes.
 Diagramas completos que mostram a ordem das mensagens em cada operação do sistema.
 
 ### Imagens
-- ![Seq UC01](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC01.png)
-- ![Seq UC02](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC02.png)
-- ![Seq UC03](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC03.png)
-- ![Seq UC04](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC04.png)
-- ![Seq UC05](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC05.png)
+![Seq UC01](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC01.png)
+![Seq UC02](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC02.png)
+![Seq UC03](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC03.png)
+![Seq UC04](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC04.png)
+![Seq UC05](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC05.png)
 
 ---
 
@@ -111,7 +111,7 @@ Diagramas completos que mostram a ordem das mensagens em cada operação do sist
 Representa o fluxo geral previsto para o usuário dentro do sistema.
 
 ### Imagem
-- ![Diagrama de Estados](Diagrama%20de%20Estados/Imagens/Diagrama%20de%20Estados.png)
+![Diagrama de Estados](Diagrama%20de%20Estados/Imagens/Diagrama%20de%20Estados.png)
 
 ---
 
@@ -120,7 +120,7 @@ Representa o fluxo geral previsto para o usuário dentro do sistema.
 Representa como os módulos do sistema são distribuídos nos ambientes de execução.
 
 ### Imagem
-- ![Diagrama de Implantação](Diagrama%20de%20Implanta%C3%A7%C3%A3o/Imagens/Diagrama%20De%20Implanta%C3%A7%C3%A3o.png)
+![Diagrama de Implantação](Diagrama%20de%20Implanta%C3%A7%C3%A3o/Imagens/Diagrama%20De%20Implanta%C3%A7%C3%A3o.png)
 
 ---
 
