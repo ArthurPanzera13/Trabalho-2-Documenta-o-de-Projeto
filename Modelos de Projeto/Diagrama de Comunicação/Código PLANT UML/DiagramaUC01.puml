@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de Comunicação – UC01 Login
+
+object Usuario
+object WebClient
+object UserController
+object UserService
+object UserRepository
+object NotificationService
+
+Usuario --> WebClient : 1. inserirCredenciais()
+WebClient --> UserController : 2. solicitarLogin()
+UserController --> UserService : 3. autenticar()
+UserService --> UserRepository : 4. buscarUsuario(email)
+UserRepository --> UserService : 5. retornarUsuario
+UserService --> UserService : 6. validarSenha()
+UserService --> NotificationService : 7. registrarAcesso()
+UserService --> UserController : 8. respostaAutenticacao()
+UserController --> WebClient : 9. retornarToken()
+WebClient --> Usuario : 10. exibirResultado()
+@enduml

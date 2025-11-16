@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+skinparam handwritten false
+
+skinparam usecase {
+  BackgroundColor #FBF5C3
+  BorderColor #000000
+}
+skinparam rectangle {
+  BorderColor #000000
+}
+
+' ==== Atores ====
+actor Leitor as L
+actor Moderador as M
+actor Administrador as A
+
+' ==== Herança entre atores ====
+M --|> L
+A --|> L
+
+' ==== Pacote com casos de uso ====
+rectangle "Gerenciar Usuários - LitNet" as UC {
+
+    usecase "Cadastrar Usuário" as UC_Cadastro
+    usecase "Validar Dados\ndo Cadastro" as UC_ValidaCadastro
+
+    usecase "Autenticar Usuário" as UC_Login
+    usecase "Validar Credenciais\nde Acesso" as UC_ValidaLogin
+
+    usecase "Atualizar Perfil" as UC_Editar
+    usecase "Salvar Alterações\ndo Perfil" as UC_SalvarPerfil
+    usecase "Validar Campos\nAlterados" as UC_ValidaCampos
+}
+
+' ==== Ligações dos atores ====
+L --> UC_Cadastro
+L --> UC_Login
+L --> UC_Editar
+
+' ==== Include ====
+UC_Cadastro --> UC_ValidaCadastro : <<include>>
+UC_Login --> UC_ValidaLogin : <<include>>
+UC_Editar --> UC_SalvarPerfil : <<include>>
+UC_SalvarPerfil --> UC_ValidaCampos : <<include>>
+@enduml

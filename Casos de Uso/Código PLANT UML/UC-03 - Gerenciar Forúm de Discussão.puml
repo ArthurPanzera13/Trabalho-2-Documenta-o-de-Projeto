@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+
+skinparam handwritten false
+
+skinparam usecase {
+  BackgroundColor #FBF5C3
+  BorderColor #000000
+}
+
+skinparam rectangle {
+  BorderColor #000000
+}
+
+' ==== Atores ====
+actor Leitor as L
+actor Moderador as M
+
+' ==== Herança ====
+M --|> L
+
+' ==== Pacote ====
+rectangle "Gerenciar Fórum de Discussão – LitNet" {
+
+    ' --- Casos do Leitor ---
+    usecase "Acessar Fórum" as UC_Acessar
+    usecase "Participar de Fórum" as UC_Participar
+    usecase "Criar Fórum" as UC_Criar
+    usecase "Enviar Comentário" as UC_Comentario
+    usecase "Acessar Outro Fórum" as UC_AcessarOutro
+
+    ' --- Casos exclusivos do Moderador ---
+    usecase "Editar Fórum" as UC_Editar
+    usecase "Configurar Fórum" as UC_Configurar
+    usecase "Gerenciar Participantes" as UC_GerenciarUsers
+    usecase "Gerenciar Mensagens" as UC_GerenciarMsgs
+    usecase "Excluir Conteúdo" as UC_Excluir
+
+    ' --- Auxiliares ---
+    usecase "Armazenar Conteúdo" as UC_Armazenar
+}
+
+' ==== Ligações Leitor ====
+L --> UC_Acessar
+L --> UC_Participar
+L --> UC_Criar
+L --> UC_Comentario
+
+' ==== Ligações Moderador ====
+M --> UC_Editar
+M --> UC_Configurar
+M --> UC_GerenciarUsers
+M --> UC_GerenciarMsgs
+M --> UC_Excluir
+
+' ==== Include ====
+UC_Criar --> UC_Armazenar : <<include>>
+UC_Comentario --> UC_Armazenar : <<include>>
+
+' ==== Extend ====
+UC_Acessar <.. UC_AcessarOutro : <<extend>>
+@enduml

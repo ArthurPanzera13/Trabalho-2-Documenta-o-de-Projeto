@@ -1,0 +1,29 @@
+@startuml
+title Diagrama de Comunicação – UC04 Gerenciar Biblioteca
+
+object Usuario
+object WebClient
+object LibraryController
+object LibraryService
+object ShelfRepository
+object BookRepository
+object GoogleBooksAPI
+
+Usuario --> WebClient : 1. buscarLivro()
+WebClient --> LibraryController : 2. solicitarBuscaGoogle()
+LibraryController --> GoogleBooksAPI : 3. consultarLivro(isbn)
+GoogleBooksAPI --> LibraryController : 4. retornarMetadados()
+
+Usuario --> WebClient : 5. adicionarÀEstante()
+WebClient --> LibraryController : 6. registrarAção()
+LibraryController --> LibraryService : 7. salvarItemEstante()
+LibraryService --> BookRepository : 8. buscarLivro()
+BookRepository --> LibraryService : 9. retornarLivro
+
+LibraryService --> ShelfRepository : 10. salvarItem()
+ShelfRepository --> LibraryService : 11. itemSalvo
+
+LibraryService --> LibraryController : 12. atualizar()
+LibraryController --> WebClient : 13. retornarResultado()
+WebClient --> Usuario : 14. exibirAlterações()
+@enduml

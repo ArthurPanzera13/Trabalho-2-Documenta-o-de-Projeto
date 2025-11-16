@@ -1,0 +1,80 @@
+@startuml
+title Arquitetura Lógica do Sistema LitNet 
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam handwritten false
+skinparam rectangle {
+  BorderColor #555
+}
+skinparam database {
+  BorderColor #555
+}
+
+' =======================
+' CAMADA CLIENTE
+' =======================
+node "Camada de Apresentação\n(Cliente Web / Navegador)" as Client {
+  component "Frontend LitNet\nReact • Next.js • TailwindCSS" as Frontend
+}
+
+' =======================
+' CAMADA DE APLICAÇÃO
+' =======================
+node "Camada de Aplicação\n(Java 21 • Spring Boot)" as App {
+
+  component "API LitNet\n(REST Controllers)" as API
+
+  package "Módulos de Negócio" {
+
+    component "Módulo de Usuários\n• Autenticação\n• Perfis\n(UC-01)" as ModUsers
+
+    component "Módulo de Biblioteca\n• Estante pessoal\n• Status de leitura\n• Avaliações\n(UC-02, UC-04)" as ModLibrary
+
+    component "Módulo de Fórum\n• Tópicos\n• Comentários\n(UC-03)" as ModForum
+
+    component "Módulo de Marketplace\n• Anúncios\n• Propostas\n• Transações\n(UC-05)" as ModMarket
+
+    component "Módulo de Notificações\n• Push\n• E-mail" as ModNotify
+  }
+}
+
+' =======================
+' CAMADA DE DADOS
+' =======================
+node "Camada de Dados\n(PostgreSQL)" as Data {
+  database "Banco de Dados LitNet" as DB
+}
+
+' =======================
+' SERVIÇOS EXTERNOS
+' =======================
+node "Serviços Externos" as External {
+
+  component "Google Books API\nBusca de livros, capas,\nmetadados" as GoogleBooks
+
+  component "Serviço de E-mail /\nPush Notifications" as Mail
+}
+
+' =======================
+' FLUXOS ENTRE CAMADAS
+' =======================
+
+Frontend --> API : Requisições REST\n(JSON via HTTP/HTTPS)
+
+API --> ModUsers   : Operações de Usuários
+API --> ModLibrary : Operações Biblioteca
+API --> ModForum   : Operações Fórum
+API --> ModMarket  : Operações Marketplace
+API --> ModNotify  : Solicitar Notificações
+
+ModUsers   --> DB : CRUD Usuários, Perfis
+ModLibrary --> DB : Estante, Status, Avaliações
+ModMarket  --> DB : Anúncios, Propostas, Transações
+ModForum   --> DB : Fóruns, Tópicos, Comentários
+
+' === Integração com Google Books ===
+ModLibrary --> GoogleBooks : Buscar Livros\n(metadados / capa / autores)
+
+ModNotify --> Mail : Envio de notificações externas
+@enduml

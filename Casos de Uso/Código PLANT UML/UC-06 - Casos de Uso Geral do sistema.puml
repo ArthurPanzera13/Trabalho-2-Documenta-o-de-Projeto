@@ -1,0 +1,133 @@
+@startuml
+left to right direction
+skinparam handwritten false
+skinparam actorStyle stick
+
+skinparam usecase {
+  BackgroundColor #F7F5D7
+  BorderColor #A09060
+  FontSize 16
+}
+
+skinparam actor {
+  FontSize 18
+}
+
+' ======= ATORES =======
+actor Leitor as L
+actor Moderador as M
+actor Comprador as C
+actor Vendedor as V
+
+' ======= HERANÇA =======
+L <|-- C
+L <|-- V
+L <|-- M
+
+rectangle "LitNet – Visão Geral do Sistema" {
+
+' ============================
+'      GERENCIAR USUÁRIOS
+' ============================
+usecase "Cadastrar Usuário" as UC1
+usecase "Autenticar Usuário" as UC2
+usecase "Atualizar Perfil" as UC3
+
+' ============================
+'      AVALIAR LIVROS
+' ============================
+usecase "Avaliar Livro" as UC4
+usecase "Publicar Avaliação" as UC5
+usecase "Armazenar Avaliação" as UC6
+
+' ============================
+'      GERENCIAR FÓRUM
+' ============================
+usecase "Acessar Fórum" as UC7
+usecase "Criar Fórum" as UC8
+usecase "Enviar Comentário" as UC9
+usecase "Editar Fórum" as UC10
+usecase "Configurar Fórum" as UC11
+usecase "Gerenciar Participantes" as UC12
+usecase "Gerenciar Mensagens" as UC13
+usecase "Excluir Conteúdo" as UC14
+
+' ============================
+'      GERENCIAR LIVROS
+' ============================
+usecase "Gerenciar Livros" as UC15
+usecase "Pesquisar Livro" as UC16
+usecase "Selecionar Livro" as UC17
+usecase "Definir Status" as UC18
+usecase "Salvar Atualizações" as UC19
+usecase "Exibir Confirmação" as UC20
+
+' ============================
+'    COMPRA E VENDA DE LIVROS
+' ============================
+usecase "Pesquisar Livros à Venda" as UC21
+usecase "Visualizar Anúncio" as UC22
+usecase "Enviar Proposta de Compra" as UC23
+usecase "Efetuar Compra" as UC24
+usecase "Adicionar Livro Comprado" as UC25
+usecase "Enviar Avaliação do Vendedor" as UC26
+
+usecase "Anunciar Livro" as UC27
+usecase "Editar Anúncio" as UC28
+usecase "Remover Anúncio" as UC29
+usecase "Gerenciar Propostas" as UC30
+usecase "Confirmar Venda" as UC31
+usecase "Registrar Transação" as UC32
+usecase "Notificar Usuários" as UC33
+
+}
+
+' ====== LIGAÇÃO DOS ATORES ======
+
+L --> UC1
+L --> UC2
+L --> UC3
+L --> UC4
+L --> UC7
+L --> UC8
+L --> UC9
+L --> UC15
+
+M --> UC10
+M --> UC11
+M --> UC12
+M --> UC13
+M --> UC14
+
+C --> UC21
+C --> UC22
+C --> UC23
+C --> UC24
+
+V --> UC27
+V --> UC28
+V --> UC29
+V --> UC30
+V --> UC31
+
+' ====== INCLUDE / EXTEND ======
+
+UC4 --> UC6 : <<include>>
+UC4 <- UC5 : <<extend>>
+
+UC15 --> UC16 : <<include>>
+UC15 --> UC17 : <<include>>
+UC15 --> UC18 : <<include>>
+UC15 --> UC19 : <<include>>
+UC15 --> UC20 : <<include>>
+
+UC24 --> UC32 : <<include>>
+UC23 --> UC32 : <<include>>
+UC32 --> UC33 : <<include>>
+
+UC24 <- UC25 : <<extend>>
+UC24 <- UC26 : <<extend>>
+
+UC8 --> UC14 : <<include>>
+UC9 --> UC14 : <<include>>
+@enduml

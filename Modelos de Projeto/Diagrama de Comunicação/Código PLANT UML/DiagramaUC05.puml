@@ -1,0 +1,36 @@
+@startuml
+title Diagrama de Comunicação – UC05 Marketplace
+
+object Usuario
+object WebClient
+object MarketController
+object MarketService
+object ListingRepository
+object ProposalRepository
+object TransactionRepository
+object NotificationService
+
+Usuario --> WebClient : 1. criarAnuncio()
+WebClient --> MarketController : 2. solicitarCriacao()
+MarketController --> MarketService : 3. processarAnuncio()
+MarketService --> ListingRepository : 4. salvarAnuncio()
+ListingRepository --> MarketService : 5. anuncioCriado
+
+Usuario --> WebClient : 6. enviarProposta()
+WebClient --> MarketController : 7. submeterProposta()
+MarketController --> MarketService : 8. registrarProposta()
+MarketService --> ProposalRepository : 9. salvarProposta()
+ProposalRepository --> MarketService : 10. propostaCriada
+
+Usuario --> WebClient : 11. confirmarVenda()
+WebClient --> MarketController : 12. solicitarTransacao()
+MarketController --> MarketService : 13. criarTransacao()
+MarketService --> TransactionRepository : 14. salvarTransacao()
+TransactionRepository --> MarketService : 15. transacaoCriada
+
+MarketService --> NotificationService : 16. notificarPartes()
+
+MarketService --> MarketController : 17. operaçãoFinalizada()
+MarketController --> WebClient : 18. retornarResposta()
+WebClient --> Usuario : 19. exibirResultado()
+@enduml

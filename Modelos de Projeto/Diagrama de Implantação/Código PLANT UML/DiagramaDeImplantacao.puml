@@ -1,0 +1,67 @@
+@startuml
+title Diagrama de Implantação – Sistema LitNet
+
+skinparam shadowing false
+skinparam handwritten false
+skinparam nodeStyle rectangle
+skinparam componentStyle uml2
+skinparam defaultFontName Arial
+
+' =======================
+' CAMADA DO CLIENTE
+' =======================
+node "LitNet Client\n(Navegador Web)" as ClientNode <<device>> {
+    artifact "Frontend Web\nReact / Next.js\nTailwindCSS" as Frontend
+}
+
+' =======================
+' SERVIDOR DE APLICAÇÃO
+' =======================
+node "Servidor de Aplicação\n(Spring Boot / Java 21)" as AppServer <<node>> {
+
+    component "API LitNet\nREST Controllers" as API
+
+    node "Módulos da Aplicação" as Modules {
+        component "UsersModule\n(AuthManager, ProfileManager)" as UsersModule
+        component "LibraryModule\n(ShelfManager, ReviewManager)" as LibraryModule
+        component "ForumModule\n(TopicManager, CommentManager)" as ForumModule
+        component "MarketplaceModule\n(AdManager, ProposalManager, TransactionManager)" as MarketplaceModule
+        component "NotificationModule\n(PushManager, EmailManager)" as NotificationModule
+    }
+}
+
+' =======================
+' SERVIDOR DE BANCO
+' =======================
+node "Servidor de Banco de Dados\n(PostgreSQL)" as DBServer <<node>> {
+    database "Banco LitNet\nPostgreSQL" as DB
+}
+
+' =======================
+' SERVIÇOS EXTERNOS
+' =======================
+node "Serviços Externos" as External <<node>> {
+    component "Google Books API\n(REST Metadata Service)" as GoogleBooks
+    component "Email / Push Service\n(Notification Provider)" as EmailPush
+}
+
+' =======================
+' CONEXÕES
+' =======================
+
+ClientNode --> API : HTTP/HTTPS\nJSON REST
+
+API --> UsersModule
+API --> LibraryModule
+API --> ForumModule
+API --> MarketplaceModule
+API --> NotificationModule
+
+UsersModule --> DB : CRUD Usuários/Perfis
+LibraryModule --> DB : Livros / Estantes / Avaliações
+ForumModule --> DB : Tópicos / Comentários
+MarketplaceModule --> DB : Anúncios / Propostas / Transações
+
+LibraryModule --> GoogleBooks : Buscar livros\nMetadados / capas / autores
+NotificationModule --> EmailPush : Envio de notificações\nPush / E-mail
+@enduml

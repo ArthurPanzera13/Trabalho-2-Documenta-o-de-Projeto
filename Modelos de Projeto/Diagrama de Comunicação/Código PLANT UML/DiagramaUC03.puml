@@ -1,0 +1,26 @@
+@startuml
+title Diagrama de Comunicação – UC03 Fórum (Criar Tópico / Comentar)
+
+object Usuario
+object WebClient
+object ForumController
+object ForumService
+object TopicRepository
+object CommentRepository
+object NotificationService
+
+Usuario --> WebClient : 1. criarTopico() ou comentar()
+WebClient --> ForumController : 2. enviarRequisicao()
+ForumController --> ForumService : 3. processarOperacao()
+
+ForumService --> TopicRepository : 4a. salvarTopico()
+TopicRepository --> ForumService : 4b. topicoCriado
+
+ForumService --> CommentRepository : 5a. salvarComentario()
+CommentRepository --> ForumService : 5b. comentarioCriado
+
+ForumService --> NotificationService : 6. notificarParticipantes()
+ForumService --> ForumController : 7. operacaoConfirmada()
+ForumController --> WebClient : 8. retornarResultado()
+WebClient --> Usuario : 9. exibirAtualizacao()
+@enduml

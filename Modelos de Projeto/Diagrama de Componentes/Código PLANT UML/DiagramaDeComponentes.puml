@@ -1,0 +1,128 @@
+@startuml
+title Diagrama de Componentes - LitNet
+
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam rectangle {
+  BackgroundColor #FDFDFD
+  BorderColor #555
+}
+skinparam component {
+  BackgroundColor #F7F7F7
+  BorderColor #444
+}
+
+' ============================================
+' CONTAINER 1 — CLIENTE WEB
+' ============================================
+
+package "LitNet Client" <<Node>> {
+
+  component "Frontend Web\nReact / Next.js" as Frontend {
+  }
+
+  interface "REST API" as IRestAPI
+}
+
+
+' ============================================
+' CONTAINER 2 — SERVIÇO PRINCIPAL
+' ============================================
+
+package "LitNet Service\n(Spring Boot)" <<Node>> {
+
+  component "API Gateway\nREST Controllers" as APIGateway
+
+  ' ------------------ MÓDULO DE USUÁRIOS ------------------
+  component "UsersModule" as ModUsers {
+    component "AuthManager" as AuthMgr
+    component "ProfileManager" as ProfileMgr
+  }
+  interface "IUsers" as IUsersSvc
+
+  ' ------------------ MÓDULO DE BIBLIOTECA ------------------
+  component "LibraryModule" as ModLibrary {
+    component "ShelfManager" as ShelfMgr
+    component "ReviewManager" as ReviewMgr
+  }
+  interface "ILibrary" as ILibrarySvc
+
+  ' ------------------ MÓDULO DE FÓRUM ------------------
+  component "ForumModule" as ModForum {
+    component "TopicManager" as TopicMgr
+    component "CommentManager" as CommentMgr
+  }
+  interface "IForum" as IForumSvc
+
+  ' ------------------ MÓDULO DE MARKETPLACE ------------------
+  component "MarketplaceModule" as ModMarket {
+    component "AdManager" as AdMgr
+    component "ProposalManager" as ProposalMgr
+    component "TransactionManager" as TransMgr
+  }
+  interface "IMarketplace" as IMarketSvc
+
+  ' ------------------ MÓDULO DE NOTIFICAÇÕES ------------------
+  component "NotificationModule" as ModNotify {
+    component "PushManager" as PushMgr
+    component "EmailManager" as EmailMgr
+  }
+  interface "INotify" as INotifySvc
+}
+
+' ============================================
+' CONTAINER 3 — BANCO DE DADOS
+' ============================================
+
+package "Data Layer\n(PostgreSQL)" <<Database>> {
+  component "Banco de Dados LitNet" as DB
+}
+
+' ============================================
+' CONTAINER 4 — SERVIÇOS EXTERNOS
+' ============================================
+
+package "Serviços Externos" <<Node>> {
+
+  component "Google Books API" as GoogleAPI
+  interface "GoogleBooksREST" as IGoogleBooks
+
+  component "Serviço de E-mail\nPush Notifications" as MailSvc
+  interface "EmailREST" as IEmailSvc
+}
+
+' ============================================
+' CONEXÕES DO SISTEMA
+' ============================================
+
+' CLIENTE → API
+Frontend --> IRestAPI
+IRestAPI --> APIGateway
+
+' API → MÓDULOS INTERNOS
+APIGateway --> IUsersSvc
+APIGateway --> ILibrarySvc
+APIGateway --> IForumSvc
+APIGateway --> IMarketSvc
+APIGateway --> INotifySvc
+
+' Interfaces conectadas aos componentes
+ModUsers -- IUsersSvc
+ModLibrary -- ILibrarySvc
+ModForum -- IForumSvc
+ModMarket -- IMarketSvc
+ModNotify -- INotifySvc
+
+' MÓDULOS → BANCO DE DADOS
+ModUsers --> DB : CRUD Usuários
+ModLibrary --> DB : Livros / Estantes / Avaliações
+ModForum --> DB : Tópicos / Comentários
+ModMarket --> DB : Anúncios / Propostas / Transações
+
+' MÓDULOS → SERVIÇOS EXTERNOS
+ModLibrary --> IGoogleBooks : Busca de livros
+GoogleAPI -- IGoogleBooks
+
+ModNotify --> IEmailSvc : Envio de notificações
+MailSvc -- IEmailSvc
+@enduml

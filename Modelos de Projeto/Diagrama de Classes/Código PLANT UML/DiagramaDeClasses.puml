@@ -1,0 +1,154 @@
+@startuml
+title Diagrama de Classes - Sistema LitNet
+
+' ============================
+'        PACOTE USUÁRIOS
+' ============================
+package "Usuários" {
+  class User {
+    +id: Long
+    +nome: String
+    +email: String
+    +senhaHash: String
+    +fotoPerfil: String
+    +dataCriacao: Date
+    +status: String
+    ---
+    +autenticar()
+    +atualizarPerfil()
+  }
+
+  class PerfilLeitor {
+    +biografia: String
+    +preferenciasGenero: List<String>
+  }
+
+  User "1" -- "1" PerfilLeitor : possui >
+}
+
+' ============================
+'        PACOTE LIVROS
+' ============================
+package "Biblioteca" {
+  class Book {
+    +id: Long
+    +titulo: String
+    +autor: String
+    +descricao: String
+    +isbn: String
+    +capaUrl: String
+    +googleBooksId: String
+  }
+
+  class ShelfItem {
+    +id: Long
+    +statusLeitura: StatusLeitura
+    +dataInicio: Date
+    +dataFim: Date
+  }
+
+  enum StatusLeitura {
+    QUERO_LER
+    LENDO
+    LIDO
+    ABANDONADO
+  }
+
+  User "1" -- "0..*" ShelfItem : possui >
+  ShelfItem "*" -- "1" Book : refere-se >
+}
+
+' ============================
+'        AVALIAÇÕES
+' ============================
+package "Avaliações" {
+  class Review {
+    +id: Long
+    +nota: int
+    +comentario: String
+    +data: Date
+  }
+
+  User "1" -- "0..*" Review : escreve >
+  Book "1" -- "0..*" Review : recebe >
+}
+
+' ============================
+'        FÓRUM
+' ============================
+package "Fórum" {
+  class ForumTopic {
+    +id: Long
+    +titulo: String
+    +conteudo: String
+    +dataCriacao: Date
+  }
+
+  class Comment {
+    +id: Long
+    +conteudo: String
+    +dataCriacao: Date
+  }
+
+  User "1" -- "0..*" ForumTopic : cria >
+  ForumTopic "1" -- "0..*" Comment : possui >
+  User "1" -- "0..*" Comment : escreve >
+}
+
+' ============================
+'     MARKETPLACE (UC-05)
+' ============================
+package "Marketplace" {
+  class Listing {
+    +id: Long
+    +preco: double
+    +estadoLivro: String
+    +dataCriacao: Date
+    +ativo: boolean
+  }
+
+  class Proposal {
+    +id: Long
+    +mensagem: String
+    +valorOfertado: double
+    +data: Date
+  }
+
+  class Transaction {
+    +id: Long
+    +data: Date
+    +status: String
+  }
+
+  User "1" -- "0..*" Listing : anuncia >
+  Listing "1" -- "0..*" Proposal : recebe >
+  Proposal "1" -- "1" User : enviadoPor >
+  Listing "1" -- "0..1" Transaction : gera >
+}
+
+' ============================
+'      NOTIFICAÇÕES
+' ============================
+package "Notificações" {
+  class Notification {
+    +id: Long
+    +mensagem: String
+    +tipo: String
+    +dataEnvio: Date
+  }
+
+  User "1" -- "0..*" Notification : recebe >
+}
+
+' ============================
+'   INTEGRAÇÃO EXTERNA
+' ============================
+package "Serviços Externos" {
+  class GoogleBooksAPI {
+    +buscarLivro(isbn: String)
+    +buscarMetadados(idGoogle: String)
+  }
+
+  Book ..> GoogleBooksAPI : consulta >
+}
+@enduml

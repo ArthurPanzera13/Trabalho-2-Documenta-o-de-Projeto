@@ -1,0 +1,65 @@
+@startuml
+left to right direction
+
+skinparam handwritten false
+skinparam usecase {
+  BackgroundColor #FBF5C3
+  BorderColor #000000
+}
+skinparam actor {
+  BackgroundColor transparent
+}
+
+' ==== Atores ====
+actor Comprador as C
+actor Leitor as L
+actor Vendedor as V
+
+' ==== Reposicionamento manual ====
+C -[hidden]-> L
+L -[hidden]-> V
+
+' ==== Herança ====
+C --|> L
+V --|> L
+
+' ==== Pacote ====
+rectangle "Comprar e Vender Livros – LitNet" {
+
+    usecase "Pesquisar Livros à Venda" as UC_Pesquisar
+    usecase "Visualizar Anúncio" as UC_Visualizar
+    usecase "Enviar Proposta\nde Compra" as UC_Proposta
+    usecase "Efetuar Compra" as UC_Compra
+
+    usecase "Anunciar Livro" as UC_Anunciar
+    usecase "Editar Anúncio" as UC_Editar
+    usecase "Remover Anúncio" as UC_Remover
+    usecase "Gerenciar Propostas\nde Compra" as UC_Gerenciar
+    usecase "Confirmar Venda" as UC_Confirmar
+
+    usecase "Adicionar Livro Comprado\nà Biblioteca" as UC_AddLivro
+    usecase "Enviar Avaliação\ndo Vendedor" as UC_AvalVendedor
+
+    usecase "Registrar Transação\nno Sistema" as UC_Registrar
+    usecase "Notificar Usuários\nda Transação" as UC_Notificar
+}
+
+' ==== Ligações ====
+C --> UC_Pesquisar
+C --> UC_Visualizar
+C --> UC_Proposta
+C --> UC_Compra
+
+V --> UC_Anunciar
+V --> UC_Editar
+V --> UC_Remover
+V --> UC_Gerenciar
+V --> UC_Confirmar
+
+UC_Compra --> UC_Registrar : <<include>>
+UC_Confirmar --> UC_Registrar : <<include>>
+UC_Registrar --> UC_Notificar : <<include>>
+
+UC_Compra <.. UC_AddLivro : <<extend>>
+UC_Compra <.. UC_AvalVendedor : <<extend>>
+@enduml

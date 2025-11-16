@@ -1,0 +1,99 @@
+@startuml
+title DS-01 — Diagrama de Sequência Geral do Sistema LitNet
+skinparam ParticipantPadding 15
+
+actor Leitor
+actor Moderador
+actor Comprador
+actor Vendedor
+
+participant "Front-End\n(LitNet)" as FE
+participant "Serviço de Livros" as SL
+participant "Serviço de Fórum" as SF
+participant "Serviço de Vendas" as SV
+database "Banco de Dados" as BD
+
+
+' ==========================================================
+'   1. UC-04 — GERENCIAR LIVROS
+' ==========================================================
+
+Leitor -> FE : 1. Acessar Gerenciar Livros
+FE -> SL : 2. pesquisarLivro()
+SL -> BD : 3. consultarLivro()
+BD --> SL : 4. resultado da busca
+SL --> FE : 5. lista de livros
+FE --> Leitor : 6. exibir livros
+
+Leitor -> FE : 7. Selecionar livro
+FE -> SL : 8. obterLivro()
+SL -> BD : 9. detalhes do livro
+BD --> SL : 10. dados retornados
+SL --> FE : 11. exibir detalhes
+
+Leitor -> FE : 12. Atualizar status de leitura
+FE -> SL : 13. atualizarStatus()
+SL -> BD : 14. salvarStatus()
+BD --> SL : 15. OK
+SL --> FE : 16. confirmação
+FE --> Leitor : 17. status atualizado
+
+
+' ==========================================================
+'   2. UC-03 — GERENCIAR FÓRUM DE DISCUSSÃO
+' ==========================================================
+
+Leitor -> FE : 18. Acessar Fórum
+FE -> SF : 19. carregarForuns()
+SF -> BD : 20. consultarForuns()
+BD --> SF : 21. lista de fóruns
+SF --> FE : 22. retornar dados
+FE --> Leitor : 23. exibir fórum
+
+Leitor -> FE : 24. Enviar comentário
+FE -> SF : 25. publicarComentario()
+SF -> BD : 26. inserirComentario()
+BD --> SF : 27. OK
+SF --> FE : 28. confirmação
+FE --> Leitor : 29. comentário publicado
+
+Moderador -> FE : 30. Excluir conteúdo
+FE -> SF : 31. excluirConteudo()
+SF -> BD : 32. removerRegistro()
+BD --> SF : 33. OK
+SF --> FE : 34. atualização
+FE --> Moderador : 35. conteúdo excluído
+
+
+' ==========================================================
+'   3. UC-05 — COMPRAR E VENDER LIVROS
+' ==========================================================
+
+Comprador -> FE : 36. Pesquisar livros à venda
+FE -> SV : 37. consultarAnuncios()
+SV -> BD : 38. buscarAnuncios()
+BD --> SV : 39. anúncios
+SV --> FE : 40. lista de anúncios
+FE --> Comprador : 41. exibir anúncios
+
+Comprador -> FE : 42. Visualizar anúncio
+FE -> SV : 43. obterAnuncio()
+SV -> BD : 44. consultarAnuncio()
+BD --> SV : 45. dados do anúncio
+SV --> FE : 46. exibir anúncio
+
+Comprador -> FE : 47. Enviar proposta de compra
+FE -> SV : 48. registrarProposta()
+SV -> BD : 49. salvarProposta()
+BD --> SV : 50. OK
+SV --> Vendedor : 51. notificar nova proposta
+
+Vendedor -> FE : 52. Confirmar venda
+FE -> SV : 53. registrarVenda()
+SV -> BD : 54. inserirTransacao()
+BD --> SV : 55. OK
+
+SV -> FE : 56. notificar partes
+FE --> Comprador : 57. compra confirmada
+FE --> Vendedor : 58. venda confirmada
+@enduml

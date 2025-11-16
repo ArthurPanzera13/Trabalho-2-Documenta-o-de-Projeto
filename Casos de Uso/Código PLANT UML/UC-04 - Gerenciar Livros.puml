@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+
+skinparam handwritten false
+
+skinparam usecase {
+  BackgroundColor #FBF5C3
+  BorderColor #000000
+}
+
+skinparam rectangle {
+  BorderColor #000000
+}
+
+' ==== Ator ====
+actor Leitor as L
+
+' ==== Pacote ====
+rectangle "Gerenciar Livros – LitNet" {
+
+    usecase "Gerenciar Livros" as UC_Gerenciar
+
+    usecase "Pesquisar Livro" as UC_Pesquisar
+    usecase "Selecionar Livro" as UC_Selecionar
+    usecase "Definir Status\ndo Livro" as UC_Status
+    usecase "Salvar Atualizações\nno Sistema" as UC_Salvar
+    usecase "Exibir Confirmação" as UC_Confirmar
+
+    ' --- Novo Caso de Uso opcional ---
+    usecase "Adicionar Anotação\nao Livro" as UC_Anotacao
+}
+
+' ==== Ligações do ator ====
+L --> UC_Gerenciar
+L --> UC_Anotacao
+
+' ==== Include = obrigatório ====
+UC_Gerenciar --> UC_Pesquisar : <<include>>
+UC_Gerenciar --> UC_Selecionar : <<include>>
+UC_Gerenciar --> UC_Status : <<include>>
+UC_Gerenciar --> UC_Salvar : <<include>>
+UC_Gerenciar --> UC_Confirmar : <<include>>
+
+' ==== Extend = opcional ====
+UC_Gerenciar <.. UC_Anotacao : <<extend>>
+@enduml

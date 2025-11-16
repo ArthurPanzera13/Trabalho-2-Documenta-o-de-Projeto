@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de Comunicação – UC02 Avaliar Livro
+
+object Usuario
+object WebClient
+object LibraryController
+object LibraryService
+object ReviewRepository
+object BookRepository
+
+Usuario --> WebClient : 1. selecionarLivro()
+WebClient --> LibraryController : 2. solicitarAvaliacao()
+LibraryController --> LibraryService : 3. criarAvaliacao()
+LibraryService --> BookRepository : 4. buscarLivro(id)
+BookRepository --> LibraryService : 5. retornarLivro
+LibraryService --> ReviewRepository : 6. salvarReview()
+ReviewRepository --> LibraryService : 7. reviewCriada
+LibraryService --> LibraryController : 8. avaliacaoRegistrada()
+LibraryController --> WebClient : 9. retornarResultado()
+WebClient --> Usuario : 10. exibirConfirmacao()
+@enduml
