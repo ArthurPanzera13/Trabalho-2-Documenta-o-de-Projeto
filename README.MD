@@ -99,10 +99,10 @@ Diagramas completos que mostram a ordem das mensagens em cada operação do sist
 
 ### Imagens
 ![Seq UC01](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC01.png)
-![Seq UC02](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC02.png)
-![Seq UC03](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC03.png)
-![Seq UC04](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC04.png)
-![Seq UC05](Diagramas%20de%20Sequ%C3%AAncia/Imagens/DiagramaSequenciaUC05.png)
+![Seq UC02](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC02.png)
+![Seq UC03](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC03.png)
+![Seq UC04](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC04.png)
+![Seq UC05](Modelos%20de%20Projeto/Diagramas%20de%20Sequência/Imagens/DiagramaSequenciaUC05.png)
 
 ---
 
@@ -111,7 +111,7 @@ Diagramas completos que mostram a ordem das mensagens em cada operação do sist
 Representa o fluxo geral previsto para o usuário dentro do sistema.
 
 ### Imagem
-![Diagrama de Estados](Diagrama%20de%20Estados/Imagens/Diagrama%20de%20Estados.png)
+![Diagrama de Estados](Modelos%20de%20Projeto/Diagrama%20de%20Estados/Imagens/Diagrama%20de%20Estados.png)
 
 ---
 
@@ -120,7 +120,7 @@ Representa o fluxo geral previsto para o usuário dentro do sistema.
 Representa como os módulos do sistema são distribuídos nos ambientes de execução.
 
 ### Imagem
-![Diagrama de Implantação](Diagrama%20de%20Implanta%C3%A7%C3%A3o/Imagens/Diagrama%20De%20Implanta%C3%A7%C3%A3o.png)
+![Diagrama de Implantação](Modelos%20de%20Projeto/Diagrama%20de%20Implantação/Imagens/Diagrama%20De%20Implantação.png)
 
 ---
 
